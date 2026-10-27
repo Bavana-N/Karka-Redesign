@@ -64,3 +64,46 @@ class Course(models.Model):
             for item in self.career_opportunities.splitlines()
             if item.strip()
         ]
+
+class Event(models.Model):
+
+    EVENT_TYPES = [
+        ("Event", "Event"),
+        ("Hackathon", "Hackathon"),
+        ("Workshop", "Workshop"),
+        ("Webinar", "Webinar"),
+    ]
+
+    title = models.CharField(max_length=200)
+
+    event_type = models.CharField(
+        max_length=20,
+        choices=EVENT_TYPES,
+        default="Event"
+    )
+
+    description = models.TextField()
+
+    event_date = models.DateTimeField()
+
+    location = models.CharField(
+        max_length=200,
+        blank=True
+    )
+
+    registration_url = models.URLField(
+        blank=True
+    )
+
+    banner = models.ImageField(
+        upload_to="events/",
+        blank=True,
+        null=True
+    )
+
+    is_published = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

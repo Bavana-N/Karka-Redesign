@@ -1,0 +1,1013 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Hackathons | Karka AI & Tech Academy</title>
+
+    <style>
+        :root {
+            --bg: #080610;
+            --surface: #100c1b;
+            --surface-light: #191328;
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --cyan: #67e8f9;
+            --text: #f8f7ff;
+            --muted: #aaa3bd;
+            --border: rgba(192, 132, 252, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1200px, 90%);
+            margin: 0 auto;
+        }
+
+        /* NAVBAR */
+
+        .events-header {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            background: rgba(8, 6, 16, 0.96);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .events-nav {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .events-brand {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+            line-height: 0;
+        }
+
+        .events-brand img {
+            display: block;
+            width: 170px;
+            height: 52px;
+            max-width: 100%;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .events-nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 26px;
+        }
+
+        .events-nav-links a {
+            color: #e8e2f5;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .events-nav-links a:hover,
+        .events-nav-links a.active {
+            color: #d8a5ff;
+        }
+
+        .events-nav-links .nav-cta {
+            padding: 10px 17px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+        }
+
+        .events-menu-btn {
+            display: none;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: var(--surface-light);
+            color: white;
+            padding: 8px 12px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .events-hero {
+            padding: 85px 0 55px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at 50% 0%,
+                rgba(126, 34, 206, 0.19), transparent 65%);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 5px 12px;
+            border: 1px solid rgba(192, 132, 252, 0.5);
+            border-radius: 30px;
+            color: #e4b8ff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .events-hero h1 {
+            margin: 20px auto 15px;
+            max-width: 850px;
+            font-size: clamp(34px, 5vw, 62px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #c084fc, #f0abfc, #67e8f9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .events-hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 11px 19px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-primary {
+            color: white;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* VALUES */
+
+        .events-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 700px;
+            margin: 35px auto 0;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .value-item {
+            padding: 17px 12px;
+            text-align: center;
+        }
+
+        .value-item + .value-item {
+            border-left: 1px solid var(--border);
+        }
+
+        .value-item strong {
+            display: block;
+            color: var(--cyan);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .value-item span {
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* EVENT LIST */
+
+        .events-section {
+            padding: 55px 0 75px;
+        }
+
+        .section-heading {
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            margin-top: 12px;
+            font-size: clamp(27px, 3vw, 38px);
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            margin-top: 9px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .event-filters {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .filter-btn {
+            padding: 9px 15px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: transparent;
+            color: #d5cde5;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--purple);
+            background: rgba(168, 85, 247, 0.16);
+            color: white;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .event-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(145deg, #151022, #0c0914);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(216, 180, 254, 0.7);
+        }
+
+        .event-banner {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: var(--surface-light);
+        }
+
+        .event-banner-placeholder {
+            display: grid;
+            place-items: center;
+            height: 150px;
+            background:
+                radial-gradient(circle at 30% 30%,
+                rgba(168, 85, 247, 0.3), transparent 55%),
+                linear-gradient(135deg, #17102a, #0d1224);
+            color: #d8b4fe;
+            font-size: 42px;
+        }
+
+        .event-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 21px;
+        }
+
+        .event-type {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 5px 10px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: #e9c4ff;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .event-content h3 {
+            margin: 14px 0 9px;
+            font-size: 20px;
+            line-height: 1.35;
+            overflow-wrap: anywhere;
+        }
+
+        .event-description {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            line-clamp:4;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .event-details {
+            display: grid;
+            gap: 8px;
+            margin-top: 18px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+            color: #d5cde5;
+            font-size: 12px;
+        }
+
+        .event-details span {
+            overflow-wrap: anywhere;
+        }
+
+        .event-date {
+            color: var(--cyan);
+        }
+
+        .event-actions {
+            margin-top: auto;
+            padding-top: 18px;
+        }
+
+        .register-btn {
+            display: block;
+            width: 100%;
+            padding: 11px 15px;
+            border: none;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .register-btn.disabled {
+            background: #292335;
+            color: #a39ab5;
+            cursor: default;
+        }
+
+        .event-card[hidden] {
+            display: none !important;
+        }
+
+        .empty-state {
+            padding: 45px 20px;
+            border: 1px dashed rgba(192, 132, 252, 0.35);
+            border-radius: 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .empty-state .empty-icon {
+            display: block;
+            margin-bottom: 10px;
+            color: #c084fc;
+            font-size: 35px;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .empty-state p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* CONTACT CTA */
+
+        .events-cta {
+            padding: 0 0 70px;
+        }
+
+        .cta-box {
+            padding: 38px 25px;
+            border: 1px solid rgba(192, 132, 252, 0.35);
+            border-radius: 16px;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at top left,
+                rgba(168, 85, 247, 0.13), transparent 60%),
+                linear-gradient(120deg, #100c1b, #1a0d1c);
+        }
+
+        .cta-box h2 {
+            margin: 13px 0 10px;
+            font-size: clamp(24px, 3vw, 34px);
+        }
+
+        .cta-box p {
+            max-width: 620px;
+            margin: 0 auto 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* FOOTER — MATCH HOMEPAGE */
+
+        .site-footer {
+            padding-top: 55px;
+            background: #050409;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 35px;
+            padding-bottom: 42px;
+            align-items: start;
+        }
+
+        .footer-brand {
+            min-width: 0;
+        }
+
+        .footer-brand a {
+            display: inline-block;
+            max-width: 100%;
+            line-height: 0;
+        }
+
+        .footer-brand .logo-img {
+            display: block;
+            width: 150px;
+            max-width: 100%;
+            height: 48px;
+            object-fit: contain;
+            object-position: left center;
+            margin-bottom: 14px;
+        }
+
+        .footer-brand p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 5px;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .footer-column a,
+        .footer-column p {
+            max-width: 100%;
+            color: #918c9d;
+            font-size: 12px;
+            line-height: 1.7;
+            overflow-wrap: anywhere;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: #d8b4fe;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding: 18px 0;
+        }
+
+        .footer-bottom .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-bottom p {
+            color: #777180;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .events-nav-links {
+                gap: 16px;
+            }
+
+            .events-nav-links a {
+                font-size: 12px;
+            }
+
+            .events-brand img {
+                width: 145px;
+                height: 46px;
+            }
+
+            .events-nav {
+                gap: 15px;
+            }
+
+            .events-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .events-nav {
+                min-height: 72px;
+            }
+
+            .events-brand img {
+                width: 135px;
+                height: 43px;
+            }
+
+            .events-menu-btn {
+                display: block;
+            }
+
+            .events-nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 5% 18px;
+                border-bottom: 1px solid var(--border);
+                background: #0b0813;
+            }
+
+            .events-nav-links.open {
+                display: flex;
+            }
+
+            .events-nav-links a {
+                padding: 12px 0;
+                font-size: 14px;
+            }
+
+            .events-nav-links .nav-cta {
+                padding: 10px 14px;
+                text-align: center;
+            }
+
+            .events-hero {
+                padding: 60px 0 40px;
+            }
+
+            .events-hero h1 {
+                letter-spacing: -0.5px;
+            }
+
+            .events-hero p {
+                font-size: 13px;
+            }
+
+            .events-values {
+                grid-template-columns: 1fr;
+            }
+
+            .value-item + .value-item {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .events-section {
+                padding: 40px 0 55px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .event-banner {
+                height: 200px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px 20px;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-brand .logo-img {
+                width: 145px;
+                height: 45px;
+            }
+
+            .cta-box {
+                padding: 30px 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- NAVBAR -->
+    <header class="events-header">
+        <div class="container events-nav">
+
+            <a class="events-brand" href="{% url 'home' %}" aria-label="Karka home">
+                <img src="{% static 'images/karka-logo.png' %}"
+                     alt="Karka AI & Tech Academy">
+            </a>
+
+            <button class="events-menu-btn"
+                    id="eventsMenuBtn"
+                    type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <nav class="events-nav-links" id="eventsNavLinks">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'course_list' %}">Courses</a>
+                <a href="{% url 'why_karka' %}">Why Karka</a>
+                <a href="{% url 'home' %}#projects">Projects</a>
+                <a href="{% url 'events' %}" class="active">Events</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'course_list' %}" class="nav-cta">Explore Courses</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="events-hero">
+        <div class="container">
+
+            <span class="eyebrow">Karka Community · Innovation · Technology</span>
+
+            <h1>
+                Ideas become<br>
+                <span class="gradient-text">extraordinary here.</span>
+            </h1>
+
+            <p>
+                Discover technology events, AI challenges and creative competitions.
+                Connect with curious minds, explore ideas and build something meaningful.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#all-events" class="btn-primary">Explore Events ↓</a>
+                <a href="{% url 'contact' %}" class="btn-secondary">Partner With Karka ↗</a>
+            </div>
+
+            <div class="events-values">
+                <div class="value-item">
+                    <strong>CREATE</strong>
+                    <span>Build new ideas</span>
+                </div>
+                <div class="value-item">
+                    <strong>COLLABORATE</strong>
+                    <span>Learn together</span>
+                </div>
+                <div class="value-item">
+                    <strong>COMPETE</strong>
+                    <span>Challenge yourself</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- DYNAMIC EVENTS -->
+    <section class="events-section" id="all-events">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">What's happening</span>
+                <h2>Events <span class="gradient-text">& Hackathons</span></h2>
+                <p>Find your next opportunity to learn, create and compete.</p>
+            </div>
+
+            <div class="event-filters" aria-label="Filter events">
+                <button type="button" class="filter-btn active" data-filter="all">All Events</button>
+                <button type="button" class="filter-btn" data-filter="upcoming">Upcoming</button>
+                <button type="button" class="filter-btn" data-filter="past">Past Events</button>
+                <button type="button" class="filter-btn" data-filter="hackathon">Hackathons</button>
+                <button type="button" class="filter-btn" data-filter="workshop">Workshops</button>
+                <button type="button" class="filter-btn" data-filter="webinar">Webinars</button>
+            </div>
+
+            <div class="events-grid" id="eventsGrid">
+
+                {% for event in events %}
+                <article class="event-card"
+                         data-type="{{ event.event_type|lower }}"
+                         data-date="{{ event.event_date|date:'Y-m-d H:i:s' }}">
+
+                    {% if event.banner %}
+                    <img class="event-banner"
+                         src="{{ event.banner.url }}"
+                         alt="{{ event.title }}">
+                    {% else %}
+                    <div class="event-banner-placeholder" aria-hidden="true">
+                        {% if event.event_type == "Hackathon" %}⌘
+                        {% elif event.event_type == "Workshop" %}⚙
+                        {% elif event.event_type == "Webinar" %}◉
+                        {% else %}✦{% endif %}
+                    </div>
+                    {% endif %}
+
+                    <div class="event-content">
+
+                        <span class="event-type">{{ event.event_type }}</span>
+
+                        <h3>{{ event.title }}</h3>
+
+                        <p class="event-description">{{ event.description }}</p>
+
+                        <div class="event-details">
+                            <span class="event-date">
+                                📅 {{ event.event_date|date:"d M Y, h:i A" }}
+                            </span>
+
+                            {% if event.location %}
+                            <span>📍 {{ event.location }}</span>
+                            {% endif %}
+
+                            <span class="event-status"></span>
+                        </div>
+
+                        <div class="event-actions">
+                            {% if event.registration_url %}
+                            <a href="{{ event.registration_url }}"
+                               class="register-btn"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Register Now ↗
+                            </a>
+                            {% else %}
+                            <span class="register-btn disabled">Registration details coming soon</span>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </article>
+
+                {% empty %}
+                <div class="empty-state" id="emptyState">
+                    <span class="empty-icon">✦</span>
+                    <h3>Something exciting is on the way.</h3>
+                    <p>Our upcoming events will appear here. Check back soon!</p>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="empty-state" id="filterEmptyState" hidden>
+                <span class="empty-icon">✧</span>
+                <h3>No events in this category yet.</h3>
+                <p>Try another filter or check back soon for updates.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT CTA -->
+    <section class="events-cta">
+        <div class="container">
+            <div class="cta-box">
+
+                <span class="eyebrow">Let's build something</span>
+
+                <h2>Have an idea worth sharing?</h2>
+
+                <p>
+                    Interested in hosting an event, collaborating on a hackathon
+                    or connecting with the Karka community? Let's get in touch.
+                </p>
+
+                <a href="{% url 'contact' %}" class="btn-primary">
+                    Contact Karka ↗
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER — MATCHES HOMEPAGE -->
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/karka-logo.png' %}"
+                         alt="Karka AI & Tech Academy"
+                         class="logo-img">
+                </a>
+
+                <p>Learn today.<br>Build tomorrow.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <a href="{% url 'why_karka' %}">Why Karka</a>
+                <a href="{% url 'course_list' %}">Courses</a>
+                <a href="{% url 'home' %}#projects">Projects</a>
+                <a href="{% url 'events' %}">Events & Hackathons</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Career</h4>
+                <a href="{% url 'course_list' %}">Career Tracks</a>
+                <a href="{% url 'course_list' %}">Learning Paths</a>
+                <a href="{% url 'contact' %}">Internships</a>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Nagercoil, Tamil Nadu, India</p>
+                <a href="mailto:contact@karka.academy">contact@karka.academy</a>
+                <a href="tel:+919487530243">+91 9487530243</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Karka AI & Tech Academy. All rights reserved.</p>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script>
+        // Mobile navigation
+        const menuButton = document.getElementById("eventsMenuBtn");
+        const navLinks = document.getElementById("eventsNavLinks");
+
+        menuButton.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("open");
+            menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuButton.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // Event filters
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const eventCards = document.querySelectorAll(".event-card");
+        const filterEmptyState = document.getElementById("filterEmptyState");
+
+        function updateEventStatus() {
+            const now = new Date();
+
+            eventCards.forEach(function (card) {
+                const dateValue = card.dataset.date;
+                const eventDate = new Date(dateValue.replace(" ", "T"));
+                const status = card.querySelector(".event-status");
+
+                if (!dateValue || Number.isNaN(eventDate.getTime())) {
+                    card.dataset.period = "upcoming";
+                    if (status) status.textContent = "";
+                    return;
+                }
+
+                if (eventDate >= now) {
+                    card.dataset.period = "upcoming";
+                    if (status) status.textContent = "✨ Upcoming";
+                } else {
+                    card.dataset.period = "past";
+                    if (status) status.textContent = "✓ Event date passed";
+                }
+            });
+        }
+
+        function filterEvents(filter) {
+            let visibleCount = 0;
+
+            eventCards.forEach(function (card) {
+                const type = (card.dataset.type || "").toLowerCase();
+                const period = card.dataset.period || "upcoming";
+
+                let show = false;
+
+                if (filter === "all") {
+                    show = true;
+                } else if (filter === "upcoming" || filter === "past") {
+                    show = period === filter;
+                } else {
+                    show = type === filter;
+                }
+
+                card.hidden = !show;
+
+                if (show) visibleCount++;
+            });
+
+            filterEmptyState.hidden = visibleCount > 0;
+        }
+
+        updateEventStatus();
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                filterButtons.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+                filterEvents(button.dataset.filter);
+            });
+        });
+    </script>
+
+</body>
+</html>

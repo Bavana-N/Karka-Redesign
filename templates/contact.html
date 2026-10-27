@@ -7,19 +7,14 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
         Contact Us | Karka AI & Tech Academy
     </title>
 
-    <link
-        rel="stylesheet"
-        href="{% static 'css/style.css' %}"
-    >
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
@@ -27,653 +22,579 @@
 <body>
 
 
-<!-- =====================================================
+    <!-- =====================================================
      HEADER / NAVBAR
 ===================================================== -->
 
-<header class="site-header">
+    <header class="site-header">
 
-    <div class="container">
+        <div class="container">
 
-        <!-- LOGO -->
+            <!-- LOGO -->
 
-        <a
-            href="{% url 'home' %}"
-            class="logo"
-        >
+            <a href="{% url 'home' %}" class="logo">
 
-            <img
-                src="{% static 'images/karka-logo.png' %}"
-                alt="Karka AI & Tech Academy"
-                class="logo-img"
-            >
+                <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy" class="logo-img">
 
-        </a>
-
-
-        <!-- NAVIGATION -->
-
-        <nav class="nav-menu">
-
-            <a href="{% url 'home' %}">
-                Home
-            </a>
-
-            <a href="{% url 'course_list' %}">
-                Courses
-            </a>
-
-            <a href="{% url 'why_karka' %}">
-                Why Karka
-            </a>
-
-            <a href="{% url 'contact' %}" class="active">
-                Contact
             </a>
 
 
-            {% if user.is_authenticated %}
+            <!-- NAVIGATION -->
+
+            <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+            <nav class="nav-menu">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'course_list' %}">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+                <a href="{% url 'contact' %}" class="active">
+                    Contact
+                </a>
+
+
+                {% if user.is_authenticated %}
 
                 <a href="{% url 'logout' %}">
                     Logout
                 </a>
 
-            {% else %}
+                {% else %}
 
                 <a href="{% url 'login' %}">
                     Login
                 </a>
 
-                <a
-                    href="{% url 'signup' %}"
-                    class="nav-cta"
-                >
+                <a href="{% url 'signup' %}" class="nav-cta">
                     Sign Up
                 </a>
 
-            {% endif %}
+                {% endif %}
 
-        </nav>
+            </nav>
 
-    </div>
+        </div>
 
-</header>
+    </header>
 
 
 
-<!-- =====================================================
+    <!-- =====================================================
      CONTACT HERO
 ===================================================== -->
 
-<main>
+    <main>
 
-<section class="contact-hero">
+        <section class="contact-hero">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="contact-hero-content">
+                <div class="contact-hero-content">
 
-            <span class="section-tag">
-                GET IN TOUCH
-            </span>
+                    <span class="section-tag">
+                        GET IN TOUCH
+                    </span>
 
-            <h1>
+                    <h1>
 
-                Let's talk about your
+                        Let's talk about your
 
-                <span class="gradient-text">
-                    future.
-                </span>
+                        <span class="gradient-text">
+                            future.
+                        </span>
 
-            </h1>
+                    </h1>
 
-            <p>
+                    <p>
 
-                Have questions about our courses, internships,
-                placements or career programs?
+                        Have questions about our courses, internships,
+                        placements or career programs?
 
-                Our team is here to help you find the right path.
+                        Our team is here to help you find the right path.
 
-            </p>
+                    </p>
 
-        </div>
+                </div>
 
-    </div>
+            </div>
 
-</section>
+        </section>
 
 
 
-<!-- =====================================================
+        <!-- =====================================================
      CONTACT CONTENT
 ===================================================== -->
 
-<section class="contact-section">
+        <section class="contact-section">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="contact-grid">
-
-
-            <!-- LEFT SIDE -->
-
-            <div class="contact-info">
+                <div class="contact-grid">
 
 
-                <span class="contact-small-tag">
-                    CONTACT KARKA
-                </span>
+                    <!-- LEFT SIDE -->
+
+                    <div class="contact-info">
 
 
-                <h2>
-                    We're here to
-                    <span class="gradient-text">
-                        help.
-                    </span>
-                </h2>
-
-
-                <p class="contact-intro">
-
-                    Whether you're a student, parent or
-                    someone exploring a career change,
-                    reach out to us with your questions.
-
-                </p>
-
-
-
-                <!-- PHONE -->
-
-                <a
-                    href="tel:+919487530243"
-                    class="contact-card"
-                >
-
-                    <div class="contact-icon">
-                        ☎
-                    </div>
-
-                    <div>
-
-                        <span>
-                            CALL US
+                        <span class="contact-small-tag">
+                            CONTACT KARKA
                         </span>
 
-                        <strong>
-                            +91 94875 30243
-                        </strong>
 
-                        <small>
-                            Tap to call our team
-                        </small>
+                        <h2>
+                            We're here to
+                            <span class="gradient-text">
+                                help.
+                            </span>
+                        </h2>
+
+
+                        <p class="contact-intro">
+
+                            Whether you're a student, parent or
+                            someone exploring a career change,
+                            reach out to us with your questions.
+
+                        </p>
+
+
+
+                        <!-- PHONE -->
+
+                        <a href="tel:+919487530243" class="contact-card">
+
+                            <div class="contact-icon">
+                                ☎
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    CALL US
+                                </span>
+
+                                <strong>
+                                    +91 94875 30243
+                                </strong>
+
+                                <small>
+                                    Tap to call our team
+                                </small>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- WHATSAPP -->
+
+                        <a href="https://api.whatsapp.com/send/?phone=919487530243&text&type=phone_number&app_absent=0"
+                            target="_blank" class="contact-card">
+
+                            <div class="contact-icon">
+                                ↗
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    WHATSAPP
+                                </span>
+
+                                <strong>
+                                    Chat with us
+                                </strong>
+
+                                <small>
+                                    Send your queries directly
+                                </small>
+
+                            </div>
+
+                        </a>
+
+
+
+                        <!-- LOCATION -->
+
+                        <a href="https://maps.app.goo.gl/MfbE9PRvrKM8N1ah7" target="_blank" class="contact-card">
+
+                            <div class="contact-icon">
+                                ⌖
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    VISIT US
+                                </span>
+
+                                <strong>
+                                    Nagercoil, Tamil Nadu
+                                </strong>
+
+                                <small>
+                                    Open location in Google Maps
+                                </small>
+
+                            </div>
+
+                        </a>
+
 
                     </div>
 
-                </a>
 
 
+                    <!-- RIGHT SIDE -->
 
-                <!-- WHATSAPP -->
+                    <div class="contact-panel">
 
-                <a
-                    href="https://wa.me/919487530243"
-                    target="_blank"
-                    class="contact-card"
-                >
-
-                    <div class="contact-icon">
-                        ↗
-                    </div>
-
-                    <div>
-
-                        <span>
-                            WHATSAPP
+                        <span class="contact-small-tag">
+                            HAVE A QUERY?
                         </span>
 
-                        <strong>
-                            Chat with us
-                        </strong>
-
-                        <small>
-                            Send your queries directly
-                        </small>
-
-                    </div>
-
-                </a>
+                        <h3>
+                            What can we help you with?
+                        </h3>
 
 
-
-                <!-- LOCATION -->
-
-                <a
-                    href="https://maps.app.goo.gl/MfbE9PRvrKM8N1ah7"
-                    target="_blank"
-                    class="contact-card"
-                >
-
-                    <div class="contact-icon">
-                        ⌖
-                    </div>
-
-                    <div>
-
-                        <span>
-                            VISIT US
-                        </span>
-
-                        <strong>
-                            Nagercoil, Tamil Nadu
-                        </strong>
-
-                        <small>
-                            Open location in Google Maps
-                        </small>
-
-                    </div>
-
-                </a>
+                        <div class="query-list">
 
 
-            </div>
+                            <div class="query-item">
+
+                                <span class="query-number">
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Course Information
+                                    </strong>
+
+                                    <p>
+                                        Course duration, syllabus,
+                                        eligibility and fees.
+                                    </p>
+
+                                </div>
+
+                            </div>
 
 
 
-            <!-- RIGHT SIDE -->
+                            <div class="query-item">
 
-            <div class="contact-panel">
+                                <span class="query-number">
+                                    02
+                                </span>
 
-                <span class="contact-small-tag">
-                    HAVE A QUERY?
-                </span>
+                                <div>
 
-                <h3>
-                    What can we help you with?
-                </h3>
+                                    <strong>
+                                        Career Guidance
+                                    </strong>
+
+                                    <p>
+                                        Need help choosing the right
+                                        career track?
+                                    </p>
+
+                                </div>
+
+                            </div>
 
 
-                <div class="query-list">
+
+                            <div class="query-item">
+
+                                <span class="query-number">
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Internship & Projects
+                                    </strong>
+
+                                    <p>
+                                        Ask about internships,
+                                        projects and practical learning.
+                                    </p>
+
+                                </div>
+
+                            </div>
 
 
-                    <div class="query-item">
 
-                        <span class="query-number">
-                            01
-                        </span>
+                            <div class="query-item">
 
-                        <div>
+                                <span class="query-number">
+                                    04
+                                </span>
 
-                            <strong>
-                                Course Information
-                            </strong>
+                                <div>
 
-                            <p>
-                                Course duration, syllabus,
-                                eligibility and fees.
-                            </p>
+                                    <strong>
+                                        Placement & Admissions
+                                    </strong>
+
+                                    <p>
+                                        Get information about admissions,
+                                        placement support and programs.
+                                    </p>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
-                    </div>
 
+                        <a href="https://wa.me/919487530243" class="contact-main-btn">
 
+                            Talk to our team
 
-                    <div class="query-item">
+                            <span>
+                                →
+                            </span>
 
-                        <span class="query-number">
-                            02
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Career Guidance
-                            </strong>
-
-                            <p>
-                                Need help choosing the right
-                                career track?
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="query-item">
-
-                        <span class="query-number">
-                            03
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Internship & Projects
-                            </strong>
-
-                            <p>
-                                Ask about internships,
-                                projects and practical learning.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="query-item">
-
-                        <span class="query-number">
-                            04
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Placement & Admissions
-                            </strong>
-
-                            <p>
-                                Get information about admissions,
-                                placement support and programs.
-                            </p>
-
-                        </div>
+                        </a>
 
                     </div>
 
                 </div>
 
-
-                <a
-                    href="https://wa.me/919487530243"
-                    class="contact-main-btn"
-                >
-
-                    Talk to our team
-
-                    <span>
-                        →
-                    </span>
-
-                </a>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
 
-<!-- =====================================================
+        <!-- =====================================================
      SOCIAL LINKS
 ===================================================== -->
 
-<section class="contact-social-section">
+        <section class="contact-social-section">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="section-heading">
+                <div class="section-heading">
 
-            <span class="section-tag">
-                CONNECT WITH KARKA
-            </span>
-
-            <h2>
-
-                Follow our
-
-                <span class="gradient-text">
-                    journey.
-                </span>
-
-            </h2>
-
-            <p>
-                Stay updated with courses, workshops,
-                student achievements and Karka events.
-            </p>
-
-        </div>
-
-
-
-        <div class="social-grid">
-
-
-            <!-- INSTAGRAM -->
-
-            <a
-                href="https://www.instagram.com/karka.ai/"
-                target="_blank"
-                class="social-card"
-            >
-
-                <span class="social-icon">
-                    ◎
-                </span>
-
-                <div>
-
-                    <strong>
-                        Instagram
-                    </strong>
-
-                    <span>
-                        @karka.ai
+                    <span class="section-tag">
+                        CONNECT WITH KARKA
                     </span>
+
+                    <h2>
+
+                        Follow our
+
+                        <span class="gradient-text">
+                            journey.
+                        </span>
+
+                    </h2>
+
+                    <p>
+                        Stay updated with courses, workshops,
+                        student achievements and Karka events.
+                    </p>
 
                 </div>
 
-                <b>
-                    →
-                </b>
-
-            </a>
 
 
+                <div class="social-grid">
 
-            <!-- FACEBOOK -->
+                    <!-- INSTAGRAM -->
+                    <a href="https://www.instagram.com/karka.ai/" target="_blank" rel="noopener noreferrer"
+                        class="social-card">
 
-            <a
-                href="https://www.facebook.com/karka.academy"
-                target="_blank"
-                class="social-card"
-            >
+                        <span class="social-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
 
-                <span class="social-icon">
-                    f
-                </span>
+                        <div>
+                            <strong>Instagram</strong>
+                            <span>@karka.ai</span>
+                        </div>
 
-                <div>
+                        <b>→</b>
+                    </a>
 
-                    <strong>
-                        Facebook
-                    </strong>
+                    <!-- FACEBOOK -->
+                    <a href="https://www.facebook.com/karka.academy" target="_blank" rel="noopener noreferrer"
+                        class="social-card">
 
-                    <span>
-                        Karka Academy
-                    </span>
+                        <span class="social-icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
 
-                </div>
+                        <div>
+                            <strong>Facebook</strong>
+                            <span>Karka Academy</span>
+                        </div>
 
-                <b>
-                    →
-                </b>
+                        <b>→</b>
+                    </a>
 
-            </a>
+                    <!-- LINKEDIN -->
+                    <a href="https://www.linkedin.com/company/karka-academy/" target="_blank" rel="noopener noreferrer"
+                        class="social-card">
 
+                        <span class="social-icon">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </span>
 
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <span>Karka AI & Tech Academy</span>
+                        </div>
 
-            <!-- LINKEDIN -->
-
-            <a
-                href="https://www.linkedin.com/company/karka-academy/"
-                target="_blank"
-                class="social-card"
-            >
-
-                <span class="social-icon">
-                    in
-                </span>
-
-                <div>
-
-                    <strong>
-                        LinkedIn
-                    </strong>
-
-                    <span>
-                        Karka AI & Tech Academy
-                    </span>
+                        <b>→</b>
+                    </a>
 
                 </div>
 
-                <b>
-                    →
-                </b>
+            </div>
 
-            </a>
-
-
-        </div>
-
-    </div>
-
-</section>
+        </section>
 
 
 
-<!-- =====================================================
+        <!-- =====================================================
      LOCATION CTA
 ===================================================== -->
 
-<section class="contact-location">
+        <section class="contact-location">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="location-box">
+                <div class="location-box">
 
-            <div>
+                    <div>
 
-                <span class="contact-small-tag">
-                    FIND US
-                </span>
+                        <span class="contact-small-tag">
+                            FIND US
+                        </span>
 
-                <h2>
-                    Visit Karka
-                    <span class="gradient-text">
-                        in Nagercoil.
-                    </span>
-                </h2>
+                        <h2>
+                            Visit Karka
+                            <span class="gradient-text">
+                                in Nagercoil.
+                            </span>
+                        </h2>
+
+                        <p>
+                            Want to meet our team or learn more
+                            about our programs in person?
+                            Visit our academy in Nagercoil.
+                        </p>
+
+                    </div>
+
+
+                    <a href="https://maps.app.goo.gl/MfbE9PRvrKM8N1ah7" target="_blank" class="primary-btn">
+
+                        Get Directions →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-brand">
+
+                <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy">
 
                 <p>
-                    Want to meet our team or learn more
-                    about our programs in person?
-                    Visit our academy in Nagercoil.
+                    Learn. Build. Grow.
                 </p>
 
             </div>
 
 
-            <a
-                href="https://maps.app.goo.gl/MfbE9PRvrKM8N1ah7"
-                target="_blank"
-                class="primary-btn"
-            >
+            <div class="footer-links">
 
-                Get Directions →
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
 
-            </a>
+                <a href="{% url 'course_list' %}">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+                <a href="{% url 'contact' %}">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <p>
+                    Nagercoil, Tamil Nadu
+                </p>
+
+                <p>
+                    +91 94875 30243
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
 
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <div class="footer-brand">
-
-            <img
-                src="{% static 'images/karka-logo.png' %}"
-                alt="Karka AI & Tech Academy"
-            >
+        <div class="footer-bottom">
 
             <p>
-                Learn. Build. Grow.
+                © 2026 Karka AI & Tech Academy.
+                All rights reserved.
             </p>
 
         </div>
 
-
-        <div class="footer-links">
-
-            <a href="{% url 'home' %}">
-                Home
-            </a>
-
-            <a href="{% url 'course_list' %}">
-                Courses
-            </a>
-
-            <a href="{% url 'why_karka' %}">
-                Why Karka
-            </a>
-
-            <a href="{% url 'contact' %}">
-                Contact
-            </a>
-
-        </div>
+    </footer>
 
 
-        <div class="footer-contact">
-
-            <p>
-                Nagercoil, Tamil Nadu
-            </p>
-
-            <p>
-                +91 94875 30243
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 Karka AI & Tech Academy.
-            All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
+    <script src="{% static 'js/script.js' %}"></script>
 
 </body>
 

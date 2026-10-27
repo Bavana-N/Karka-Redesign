@@ -11,6 +11,13 @@ urlpatterns = [
         views.home,
         name="home"
     ),
+    
+    # Events and Hackathons
+    path(
+        "events/",
+        views.events_page,
+        name="events"
+    ),
 
     # Courses
     path(

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 
-from .models import Course
+from .models import Course,Event
 
 
 def home(request):
@@ -242,3 +242,16 @@ def why_karka(request):
     )
 def contact(request):
     return render(request, "contact.html")
+
+def events_page(request):
+    events = Event.objects.filter(
+        is_published=True
+    ).order_by("event_date")
+
+    return render(
+        request,
+        "events.html",
+        {
+            "events": events,
+        }
+    )

@@ -343,7 +343,26 @@ section {
 
     margin-bottom: 30px;
 }
+.explore-events-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    background: transparent;
+    color: #c4b5fd;
+    border: 1px solid #8b5cf6;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
 
+.explore-events-btn:hover {
+    background: #8b5cf6;
+    color: #ffffff;
+}
 .primary-btn,
 .secondary-btn {
     display: inline-flex;
@@ -5048,4 +5067,135 @@ section {
         font-size: 32px;
     }
 
+}
+/* =========================================================
+   MOBILE RESPONSIVENESS PATCH
+   Keep this section last so it overrides older desktop fixes.
+========================================================= */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+*, *::before, *::after {
+    min-width: 0;
+}
+
+.container,
+.site-footer > .container {
+    max-width: 100%;
+}
+
+img, video, iframe, canvas, svg {
+    max-width: 100%;
+}
+
+input, select, textarea, button {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .site-header { position: sticky; }
+    .site-header > .container {
+        width: calc(100% - 28px) !important;
+        min-height: 70px;
+        gap: 12px !important;
+    }
+    .logo-img { width: clamp(112px, 38vw, 155px); }
+    .menu-btn {
+        display: inline-flex !important;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: rgba(255,255,255,.06);
+        color: #fff;
+        font-size: 25px;
+        line-height: 1;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+    }
+    .site-header nav.nav-menu,
+    .nav-menu {
+        display: none !important;
+        position: absolute !important;
+        top: calc(100% + 1px) !important;
+        left: 12px !important;
+        right: 12px !important;
+        width: auto !important;
+        max-height: calc(100dvh - 90px);
+        overflow-y: auto;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 2px !important;
+        margin: 0 !important;
+        padding: 12px !important;
+        white-space: normal !important;
+        background: #100d19 !important;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 18px 45px rgba(0,0,0,.55);
+    }
+    .site-header nav.nav-menu.active,
+    .site-header nav.nav-menu.open,
+    .nav-menu.active,
+    .nav-menu.open {
+        display: flex !important;
+    }
+    .site-header nav.nav-menu > a,
+    .nav-menu > a {
+        display: flex !important;
+        width: 100%;
+        padding: 12px 14px !important;
+        margin: 0 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        font-size: 15px !important;
+        border-radius: 8px;
+    }
+    .hero-grid { gap: 28px; }
+    .hero-content h1 { font-size: clamp(32px, 9vw, 48px); line-height: 1.1; letter-spacing: -1px; }
+    .section-heading h2,
+    .cta-box h2,
+    .why-karka-cta-box h2 { font-size: clamp(28px, 7vw, 38px); line-height: 1.15; }
+    .why-karka-hero h1,
+    .contact-hero h1,
+    .detail-hero-text h1 { font-size: clamp(30px, 8vw, 44px); line-height: 1.12; }
+    .project-main-card,
+    .career-inner,
+    .cta-box,
+    .why-karka-cta-box { padding: clamp(20px, 5vw, 30px); }
+    .site-footer > .container { width: calc(100% - 32px); grid-template-columns: 1fr; gap: 28px; }
+    .detail-nav-inner { flex-wrap: wrap; }
+    .detail-nav-links { flex-wrap: wrap; }
+    .detail-hero-visual { min-height: 0; }
+    .detail-hero-visual img { width: 100%; height: auto; max-height: 340px; object-fit: contain; }
+    .detail-hero-inner { gap: 28px; }
+    .course-grid, .features-grid, .readiness-grid, .internship-grid,
+    .pay-timeline, .why-karka-features-grid, .why-pillars-grid,
+    .footer-grid, .why-karka-footer-inner { grid-template-columns: minmax(0, 1fr) !important; }
+    .course-card, .glass-card, .readiness-card, .pay-step,
+    .why-karka-card, .why-pillar { padding: 22px; }
+    .contact-grid, .social-grid { grid-template-columns: minmax(0, 1fr); }
+    .contact-panel, .content-panel, .overview-content, .benefits-card { padding: 22px; }
+    table { display: block; max-width: 100%; overflow-x: auto; }
+}
+
+@media (max-width: 420px) {
+    .container { width: calc(100% - 24px); }
+    .site-header > .container { width: calc(100% - 24px) !important; }
+    .logo-img { width: 112px; }
+    body { font-size: 15px; }
+    .hero-content h1 { font-size: clamp(30px, 8.5vw, 38px); }
+    .section-heading { margin-bottom: 28px; }
+    .section-heading h2 { font-size: 28px; letter-spacing: -.5px; }
+    .hero-actions { gap: 10px; }
+    .primary-btn, .secondary-btn, .detail-main-btn { min-height: 46px; }
+    .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .detail-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .detail-stat { min-width: 0; }
 }
