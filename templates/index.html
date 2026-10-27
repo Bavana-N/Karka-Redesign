@@ -1,0 +1,1447 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Karka AI & Tech Academy - Build skills, work on real projects and prepare for your career.">
+
+    <meta name="theme-color" content="#08070d">
+
+    <title>Karka AI & Tech Academy</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body id="top">
+
+
+    <!-- =====================================================
+     HEADER
+===================================================== -->
+
+    <header class="site-header">
+
+        <div class="container">
+
+            <a href="{% url 'home' %}" class="logo">
+
+                <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy" class="logo-img">
+
+            </a>
+
+
+            <nav class="nav-menu" aria-label="Main navigation">
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+                <a href="{% url 'course_list' %}">
+                    Courses
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#pay-after-placement">
+                    Pay After Placement
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+                <a href="{% url 'contact' %}">
+                    Contact
+                </a>
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+                {% else %}
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+                <a href="{% url 'signup' %}" class="nav-cta">
+                    Sign Up
+                </a>
+
+                {% endif %}
+
+            </nav>
+            
+
+
+            <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+     HERO
+===================================================== -->
+
+    <main>
+
+
+        <section class="hero-section">
+
+            <div class="container hero-grid">
+
+
+                <!-- Hero Content -->
+
+                <div class="hero-content">
+
+                    <span class="section-tag">
+                        AI • TECH • CAREER
+                    </span>
+
+
+                    <h1>
+
+                        Learn skills.
+
+                        <br>
+
+                        <span class="gradient-text">
+                            Build your future.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Learn industry-ready skills, work on real-world
+                        projects, and prepare for your career with
+                        Karka AI & Tech Academy.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a href="{% url 'course_list' %}" class="primary-btn">
+
+                            Explore Courses →
+
+                        </a>
+
+
+                        <a href="#why" class="secondary-btn">
+
+                            Why Karka?
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-trust">
+
+                        <span>
+                            ✓ Industry-focused learning
+                        </span>
+
+                        <span>
+                            ✓ Real project experience
+                        </span>
+
+                        <span>
+                            ✓ Career preparation
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Hero Image -->
+
+                <div class="hero-visual">
+
+                    <div class="hero-glow"></div>
+
+                    <img src="{% static 'images/hero-image.png' %}" alt="Student learning technology with laptop"
+                        class="hero-image">
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     TRUST STRIP
+===================================================== -->
+
+        <section class="trust-strip">
+
+            <div class="container trust-grid">
+
+                <div class="trust-item">
+
+                    <strong>
+                        4+
+                    </strong>
+
+                    <span>
+                        Career Readiness Pillars
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <strong>
+                        Real
+                    </strong>
+
+                    <span>
+                        Internship Projects
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <strong>
+                        AI
+                    </strong>
+
+                    <span>
+                        First Learning
+                    </span>
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <strong>
+                        Career
+                    </strong>
+
+                    <span>
+                        Focused Training
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     WHY KARKA
+===================================================== -->
+
+        <section class="why-section" id="why">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        WHY KARKA
+                    </span>
+
+                    <h2>
+
+                        Learn beyond
+                        <span class="gradient-text">
+                            certificates.
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Build practical skills and career confidence
+                        through learning that connects directly
+                        with real-world work.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="features-grid">
+
+
+                    <!-- Feature 1 -->
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ₹
+                        </div>
+
+                        <h3>
+                            Pay After You Get Hired
+                        </h3>
+
+                        <p>
+
+                            Karka's Pay After Placement model allows
+                            eligible learners to pay after getting placed,
+                            subject to the applicable terms.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 2 -->
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            AI-First Curriculum
+                        </h3>
+
+                        <p>
+
+                            Learn modern tools, AI workflows and
+                            technology skills that help you stay
+                            relevant in a changing industry.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 3 -->
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            Real Internships
+                        </h3>
+
+                        <p>
+
+                            Work on practical projects and build
+                            experience that can become part of
+                            your professional portfolio.
+
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- Feature 4 -->
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ◎
+                        </div>
+
+                        <h3>
+                            Expert Mentorship
+                        </h3>
+
+                        <p>
+
+                            Learn with guidance from mentors and
+                            industry-focused training designed
+                            around practical outcomes.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     CAREER READINESS
+===================================================== -->
+
+        <section class="readiness-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        JOB READINESS
+                    </span>
+
+                    <h2>
+
+                        Four pillars.
+
+                        <span class="gradient-text">
+                            One career goal.
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Technical knowledge is only one part of
+                        becoming career-ready.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="readiness-grid">
+
+
+                    <article class="readiness-card">
+
+                        <span class="readiness-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Business Communication
+                        </h3>
+
+                        <p>
+                            Improve communication and professional
+                            workplace interaction.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="readiness-card">
+
+                        <span class="readiness-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Technical Skills
+                        </h3>
+
+                        <p>
+                            Develop practical skills across technology,
+                            data, design and digital careers.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="readiness-card">
+
+                        <span class="readiness-number">
+                            03
+                        </span>
+
+                        <h3>
+                            AI Skills
+                        </h3>
+
+                        <p>
+                            Learn prompt engineering, AI tools,
+                            automation and LLM-focused workflows.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="readiness-card">
+
+                        <span class="readiness-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Interview Skills
+                        </h3>
+
+                        <p>
+                            Prepare with ATS profiles, mock interviews,
+                            presentations and group discussions.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     CAREER TRACKS / COURSES
+===================================================== -->
+
+        <section class="tracks-section" id="tracks">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        CAREER TRACKS
+                    </span>
+
+                    <h2>
+
+                        Choose your
+
+                        <span class="gradient-text">
+                            Career Track
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Explore individual courses designed to help
+                        you build practical skills and prepare for
+                        your career.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Dynamic Course Grid -->
+
+                <div class="course-grid">
+
+
+                    {% for course in courses %}
+
+
+                    <article class="course-card">
+
+
+                        <!-- Course Number -->
+
+                        <span class="course-number">
+
+                            {{ forloop.counter|stringformat:"02d" }}
+
+                        </span>
+                        {% if course.image %}
+                        <img src="{{ course.image.url }}" alt="{{ course.name }}" class="course-image">
+                        {% endif %}
+
+
+
+
+
+
+                        <!-- Course Name -->
+
+                        <h4>
+                            {{ course.name }}
+                        </h4>
+
+
+
+                        <!-- Description -->
+
+                        <p>
+                            {{ course.short_description }}
+                        </p>
+
+
+
+                        <!-- Course Information -->
+
+                        <div class="course-meta">
+
+                            <span>
+                                ⏱ {{ course.duration }}
+                            </span>
+
+                            <span>
+                                ◈ {{ course.category }}
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Dynamic Detail Link -->
+
+                        <a href="{% url 'course_detail' course.pk %}" class="course-btn">
+
+                            View Details →
+
+                        </a>
+
+
+                    </article>
+
+
+                    {% empty %}
+
+
+                    <div class="empty-courses">
+
+                        <h3>
+                            Courses coming soon
+                        </h3>
+
+                        <p>
+                            Our courses will be available here shortly.
+                        </p>
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                </div>
+                <div class="courses-explore">
+
+                    <a href="{% url 'course_list' %}" class="primary-btn">
+                        Explore All Courses →
+                    </a>
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     REAL PROJECTS
+===================================================== -->
+
+        <section class="projects-section" id="projects">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        REAL PROJECTS
+                    </span>
+
+                    <h2>
+
+                        Don't just learn.
+
+                        <span class="gradient-text">
+                            Build.
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Practical projects help you turn concepts
+                        into experience and create stronger
+                        portfolio evidence.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="project-main-card">
+
+
+                    <div class="project-content">
+
+                        <span class="project-label">
+                            HANDS-ON EXPERIENCE
+                        </span>
+
+
+                        <h3>
+                            Build projects that
+                            <span class="gradient-text">
+                                show what you can do.
+                            </span>
+                        </h3>
+
+
+                        <p>
+
+                            From full-stack applications and data
+                            projects to design prototypes and
+                            AI-powered solutions, practical work
+                            helps you demonstrate your skills.
+
+                        </p>
+
+
+                        <div class="project-benefits">
+
+
+                            <div class="project-benefit">
+
+                                <span>
+                                    ✓
+                                </span>
+
+                                <p>
+                                    Real-world problem solving
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-benefit">
+
+                                <span>
+                                    ✓
+                                </span>
+
+                                <p>
+                                    Portfolio-ready work
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-benefit">
+
+                                <span>
+                                    ✓
+                                </span>
+
+                                <p>
+                                    Team collaboration
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-benefit">
+
+                                <span>
+                                    ✓
+                                </span>
+
+                                <p>
+                                    Practical experience
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="project-image">
+
+                        <img src="{% static 'images/laptop.png' %}" alt="Technology project">
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     INTERNSHIP
+===================================================== -->
+
+        <section class="internship-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        INTERNSHIP
+                    </span>
+
+                    <h2>
+
+                        Experience that goes
+
+                        <span class="gradient-text">
+                            beyond the classroom.
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Get exposure to practical project workflows,
+                        collaboration and portfolio development.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="internship-grid">
+
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ◉
+                        </div>
+
+                        <h3>
+                            Real Client Projects
+                        </h3>
+
+                        <p>
+                            Work on practical project scenarios
+                            and understand how real development
+                            workflows operate.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ↗
+                        </div>
+
+                        <h3>
+                            Build Your Portfolio
+                        </h3>
+
+                        <p>
+                            Turn your project experience into
+                            useful portfolio evidence for
+                            future opportunities.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="glass-card">
+
+                        <div class="feature-icon">
+                            ◎
+                        </div>
+
+                        <h3>
+                            Collaborate & Learn
+                        </h3>
+
+                        <p>
+                            Experience collaboration, project
+                            responsibilities and professional
+                            working practices.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     PAY AFTER PLACEMENT
+===================================================== -->
+
+        <section class="pay-section" id="pay-after-placement">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        PAY AFTER PLACEMENT
+                    </span>
+
+                    <h2>
+
+                        Learn now.
+
+                        <span class="gradient-text">
+                            Pay after placement.
+                        </span>
+
+                    </h2>
+
+                    <p>
+
+                        Karka's Pay After Placement roadmap
+                        focuses on learning, job readiness and
+                        placement support before applicable payment.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="pay-timeline">
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Join Foundation
+                        </h3>
+
+                        <p>
+                            Begin your learning journey.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Expert Learning
+                        </h3>
+
+                        <p>
+                            Build practical technical skills.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Shared Success
+                        </h3>
+
+                        <p>
+                            Payment follows applicable placement terms.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Placement Training
+                        </h3>
+
+                        <p>
+                            Prepare for interviews and hiring.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Internship
+                        </h3>
+
+                        <p>
+                            Gain practical project experience.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            06
+                        </span>
+
+                        <h3>
+                            Interview
+                        </h3>
+
+                        <p>
+                            Get prepared for interview opportunities.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            07
+                        </span>
+
+                        <h3>
+                            Success
+                        </h3>
+
+                        <p>
+                            Move towards your career goal.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="pay-step">
+
+                        <span class="pay-number">
+                            08
+                        </span>
+
+                        <h3>
+                            Payment
+                        </h3>
+
+                        <p>
+                            Pay according to applicable programme terms.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     FAQ
+===================================================== -->
+
+        <section class="faq-section" id="faq">
+
+            <div class="section-heading">
+                <span class="section-tag">FAQ</span>
+
+                <h2>
+                    Questions?
+                    <span class="gradient-text">
+                        We've got answers.
+                    </span>
+                </h2>
+
+                <p>
+                    Everything you need to know before starting your learning journey.
+                </p>
+            </div>
+
+            <div class="faq-list">
+
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+
+                    <button class="faq-question" type="button">
+                        <span>What is Karka AI & Tech Academy?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Karka AI & Tech Academy is a career-focused learning
+                            platform that helps students build practical technical
+                            skills through courses, projects, internships and
+                            placement preparation.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+
+                    <button class="faq-question" type="button">
+                        <span>Does Karka offer internships?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Yes. Students can work on practical, real-world projects
+                            and gain internship experience while building a strong
+                            project portfolio.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+
+                    <button class="faq-question" type="button">
+                        <span>What is Pay After Placement?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Pay After Placement is a model where eligible students
+                            can focus on learning and placement preparation first,
+                            with payment made after getting placed, subject to the
+                            applicable program terms.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+
+                    <button class="faq-question" type="button">
+                        <span>Are the courses project based?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Yes. The learning approach focuses on practical projects
+                            so students can apply what they learn and build a useful
+                            portfolio for their career.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+
+                    <button class="faq-question" type="button">
+                        <span>Which career tracks are available?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Career-focused tracks include Fullstack Development,
+                            Generative AI, AI & Data Science, UI/UX & Design,
+                            Digital Media, Digital Marketing and other advanced
+                            technology areas.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+        <section class="cta-section" id="contact">
+
+            <div class="container">
+
+
+                <div class="cta-box">
+
+
+                    <span class="section-tag">
+                        YOUR NEXT STEP
+                    </span>
+
+
+                    <h2>
+
+                        Your career doesn't
+                        <span class="gradient-text">
+                            build itself.
+                        </span>
+
+                    </h2>
+
+
+                    <p>
+
+                        Choose a career track, build practical
+                        skills and start working towards your
+                        future.
+
+                    </p>
+
+
+                    <div class="cta-actions">
+
+                        <a href="{% url 'course_list' %}" class="primary-btn">
+
+                            Explore Courses →
+
+                        </a>
+
+
+                        <a href="mailto:contact@karka.academy" class="secondary-btn">
+
+                            Contact Karka
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+
+            <!-- Brand -->
+
+            <div class="footer-brand">
+
+                <a href="#top">
+
+                    <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy" class="logo-img">
+
+                </a>
+
+
+                <p>
+
+                    Learn today.
+                    Build tomorrow.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Quick Links -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="#why">
+                    Why Karka
+                </a>
+
+                <a href="#tracks">
+                    Courses
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+
+            <!-- Career -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Career
+                </h4>
+
+                <a href="#tracks">
+                    Career Tracks
+                </a>
+
+                <a href="#pay-after-placement">
+                    Pay After Placement
+                </a>
+
+                <a href="#projects">
+                    Internships
+                </a>
+
+            </div>
+
+
+
+            <!-- Contact -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+                <p>
+                    Nagercoil, Tamil Nadu, India
+                </p>
+
+                <a href="mailto:contact@karka.academy">
+                    contact@karka.academy
+                </a>
+
+                <a href="tel:+919487530243">
+                    +91 9487530243
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Karka AI & Tech Academy.
+                    All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+</body>
+
+</html>

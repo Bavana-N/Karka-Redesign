@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In | Karka Academy</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <a href="{% url 'home' %}" class="auth-logo">
+            <img src="{% static 'images/karka-logo.png' %}" alt="Karka Academy">
+        </a>
+
+        <h1>Welcome Back 👋</h1>
+
+        <p class="auth-subtitle">
+            Sign in to continue your learning journey.
+        </p>
+
+        {% if error %}
+            <div class="auth-error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit" class="primary-btn auth-btn">
+                Sign In →
+            </button>
+        </form>
+
+        <p class="auth-switch">
+            Don't have an account?
+            <a href="{% url 'signup' %}">Create Account</a>
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

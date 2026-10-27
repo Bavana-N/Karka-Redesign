@@ -1,0 +1,370 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Enroll | {{ course.name }} | Karka AI & Tech Academy
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/enroll.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+    <header class="enroll-navbar">
+
+        <div class="enroll-nav-container">
+
+            <a href="{% url 'home' %}" class="enroll-logo">
+
+                <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy">
+
+            </a>
+
+
+            <nav class="enroll-nav">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'course_list' %}" class="active">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+                {% else %}
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+                {% endif %}
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+     ENROLLMENT PAGE
+===================================================== -->
+
+    <main class="enroll-page">
+
+        <div class="enroll-container">
+
+
+            <!-- TOP LABEL -->
+
+            <div class="enroll-label">
+                ENROLLMENT
+            </div>
+
+
+            <!-- MAIN CARD -->
+
+            <section class="enroll-card">
+
+
+                <!-- LEFT CONTENT -->
+
+                <div class="enroll-content">
+
+                    <span class="enroll-tag">
+                        READY TO START?
+                    </span>
+
+
+                    <h1>
+                        Start your
+                        <span class="gradient-text">
+                            learning journey.
+                        </span>
+                    </h1>
+
+
+                    <p class="enroll-intro">
+                        You're one step away from starting your
+                        learning journey with Karka AI & Tech Academy.
+                    </p>
+
+
+                    <!-- COURSE INFO -->
+
+                    <div class="selected-course">
+
+                        <div class="course-icon">
+                            ✦
+                        </div>
+
+
+                        <div class="course-info">
+
+                            <span>
+                                YOU ARE ENROLLING IN
+                            </span>
+
+                            <h2>
+                                {{ course.name }}
+                            </h2>
+
+                            <p>
+                                {{ course.short_description }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COURSE META -->
+
+                    <div class="enroll-meta">
+
+                        <div class="enroll-meta-item">
+
+                            <span class="meta-symbol">
+                                ◷
+                            </span>
+
+                            <div>
+                                <small>
+                                    Duration
+                                </small>
+
+                                <strong>
+                                    {{ course.duration }}
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="enroll-meta-item">
+
+                            <span class="meta-symbol">
+                                ✦
+                            </span>
+
+                            <div>
+                                <small>
+                                    Learning
+                                </small>
+
+                                <strong>
+                                    Practical
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="enroll-meta-item">
+
+                            <span class="meta-symbol">
+                                ✓
+                            </span>
+
+                            <div>
+                                <small>
+                                    Certificate
+                                </small>
+
+                                <strong>
+                                    Included
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div class="enroll-actions">
+
+                        <form method="POST" action="{% url 'enroll_course' course.pk %}">
+                            {% csrf_token %}
+
+                            <button type="submit" class="confirm-btn">
+                                Confirm Enrollment
+                                <span>→</span>
+                            </button>
+
+                        </form>
+
+
+                        <a href="{% url 'course_detail' course.pk %}" class="back-course-btn">
+                            ← Back to Course
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT VISUAL -->
+
+                <div class="enroll-visual">
+
+                    <div class="visual-glow"></div>
+
+
+                    {% if course.image %}
+
+                    <img src="{{ course.image.url }}" alt="{{ course.name }}">
+
+                    {% else %}
+
+                    <img src="{% static 'images/hero-image.png' %}" alt="{{ course.name }}">
+
+                    {% endif %}
+
+
+                    <div class="visual-badge">
+
+                        <span>
+                            ✦
+                        </span>
+
+                        <div>
+                            <strong>
+                                Career Focused
+                            </strong>
+
+                            <small>
+                                Learn • Build • Grow
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- TRUST POINTS -->
+
+            <div class="enroll-trust">
+
+                <div>
+                    <span>✓</span>
+                    Practical learning
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Real-world projects
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Career-focused skills
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="enroll-footer">
+
+        <div class="enroll-footer-inner">
+
+            <div class="footer-brand">
+
+                <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy">
+
+                <p>
+                    Learn. Build. Grow.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'course_list' %}">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <strong>
+                    Contact
+                </strong>
+
+                <span>
+                    Nagercoil, Tamil Nadu
+                </span>
+
+                <span>
+                    contact@karka.academy
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Karka AI & Tech Academy. All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,567 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Explore Courses | Karka AI & Tech Academy
+    </title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     HEADER / NAVBAR
+===================================================== -->
+
+    <header class="site-header">
+
+        <div class="container">
+
+            <!-- LOGO -->
+
+            <a href="{% url 'home' %}" class="logo">
+
+                <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy" class="logo-img">
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="nav-menu">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'course_list' %}" class="active">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+                <a href="{% url 'contact' %}">
+                    Contact
+                </a>
+
+                {% if user.is_authenticated %}
+
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+                {% else %}
+
+                <a href="{% url 'login' %}" class="nav-login">
+                    Login
+                </a>
+
+                <a href="{% url 'signup' %}" class="nav-signup">
+                    Sign Up
+                </a>
+
+                {% endif %}
+
+            </nav>
+
+
+            <!-- MOBILE / BACK BUTTON -->
+
+            <a href="{% url 'home' %}" class="secondary-btn">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+     MAIN
+===================================================== -->
+
+    <main>
+
+
+        <!-- =====================================================
+     COURSE HERO
+===================================================== -->
+
+        <section class="courses-page-hero">
+
+            <div class="container">
+                <center>
+                    <div class="courses-hero-content">
+
+                        <span class="section-tag">
+                            EXPLORE • LEARN • BUILD
+                        </span>
+
+
+                        <h1>
+
+                            Find Your
+
+                            <span class="gradient-text">
+                                Career Path
+                            </span>
+
+                        </h1>
+
+
+                        <p>
+                            Explore industry-focused courses designed
+                            to help you learn practical skills, build
+                            real projects and become career-ready.
+                        </p>
+
+                    </div>
+                </center>
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     SEARCH + FILTER
+===================================================== -->
+
+        <section class="courses-filter-section">
+
+            <div class="container">
+
+
+                <div class="courses-toolbar">
+
+
+                    <!-- SEARCH -->
+
+                    <form method="GET" class="course-filter">
+
+                        <div class="course-search">
+
+                            <span class="search-icon">
+                                ⌕
+                            </span>
+
+                            <input type="text" name="search" placeholder="Search for a course..."
+                                value="{{ search_query }}">
+
+                            <button type="submit">
+                                Search
+                            </button>
+
+                        </div>
+
+
+                        <!-- CATEGORY -->
+
+                        <div class="course-category">
+
+                            <select name="category" onchange="this.form.submit()">
+
+                                <option value="">
+                                    All Categories
+                                </option>
+
+
+                                {% for category in categories %}
+
+                                <option value="{{ category }}" {% if selected_category==category %} selected {% endif
+                                    %}>
+
+                                    {{ category }}
+
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+             RESULT INFORMATION
+        ================================================= -->
+
+                <div class="course-result-info">
+
+                    <div>
+
+                        {% if search_query and selected_category %}
+
+                        <p>
+                            Showing results for
+                            <strong>
+                                "{{ search_query }}"
+                            </strong>
+                            in
+                            <strong>
+                                {{ selected_category }}
+                            </strong>
+                        </p>
+
+                        {% elif search_query %}
+
+                        <p>
+                            Search results for
+                            <strong>
+                                "{{ search_query }}"
+                            </strong>
+                        </p>
+
+                        {% elif selected_category %}
+
+                        <p>
+                            Showing courses in
+                            <strong>
+                                {{ selected_category }}
+                            </strong>
+                        </p>
+
+                        {% else %}
+
+                        <p>
+                            Explore all our courses
+                        </p>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="course-count">
+
+                        {{ courses|length }}
+
+                        {% if courses|length == 1 %}
+                        Course
+                        {% else %}
+                        Courses
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+             COURSE GRID
+        ================================================= -->
+
+                <div class="course-grid">
+
+
+                    {% for course in courses %}
+
+
+                    <article class="course-card">
+
+
+                        <!-- COURSE IMAGE -->
+
+                        <div class="course-image-wrapper">
+
+                            <span class="course-number">
+
+                                {{ forloop.counter|stringformat:"02d" }}
+
+                            </span>
+
+
+                            {% if course.image %}
+
+                            <img src="{{ course.image.url }}" alt="{{ course.name }}" class="course-image">
+
+                            {% else %}
+
+                            <img src="{% static 'images/hero-image.png' %}" alt="{{ course.name }}"
+                                class="course-image">
+
+                            {% endif %}
+
+                        </div>
+
+
+
+                        <!-- COURSE CONTENT -->
+
+                        <div class="course-content">
+
+
+                            <!-- CATEGORY -->
+
+                            <span class="course-card-category">
+
+                                {{ course.category }}
+
+                            </span>
+
+
+
+                            <!-- COURSE NAME -->
+
+                            <h3>
+                                {{ course.name }}
+                            </h3>
+
+
+
+                            <!-- DESCRIPTION -->
+
+                            <p class="course-description">
+
+                                {{ course.short_description }}
+
+                            </p>
+
+
+
+                            <!-- COURSE META -->
+
+                            <div class="course-meta">
+
+
+                                <span>
+
+                                    <span class="meta-icon">
+                                        ◷
+                                    </span>
+
+                                    {{ course.duration }}
+
+                                </span>
+
+
+                                <span>
+
+                                    <span class="meta-icon">
+                                        ✦
+                                    </span>
+
+                                    Career Focused
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <!-- DIVIDER -->
+
+                            <div class="course-card-divider"></div>
+
+
+
+                            <!-- DETAILS BUTTON -->
+
+                            <a href="{% url 'course_detail' course.pk %}" class="course-btn">
+
+                                <span>
+                                    View Course Details
+                                </span>
+
+                                <span class="arrow">
+                                    →
+                                </span>
+
+                            </a>
+
+
+                        </div>
+
+
+                    </article>
+
+
+                    {% empty %}
+
+
+                    <!-- =================================================
+                 NO RESULTS
+            ================================================= -->
+
+                    <div class="empty-courses">
+
+
+                        <div class="empty-icon">
+                            ⌕
+                        </div>
+
+
+                        <h3>
+                            No courses found
+                        </h3>
+
+
+                        <p>
+                            We couldn't find a course matching
+                            your search. Try another course name
+                            or category.
+                        </p>
+
+
+                        <a href="{% url 'course_list' %}" class="primary-btn">
+
+                            View All Courses →
+
+                        </a>
+
+
+                    </div>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+     CTA
+===================================================== -->
+
+    <section class="courses-bottom-cta">
+
+        <div class="container">
+
+            <div class="courses-cta-box">
+
+                <div>
+
+                    <span class="section-tag">
+                        NOT SURE WHAT TO CHOOSE?
+                    </span>
+
+                    <h2>
+                        Start with the
+                        <span class="gradient-text">
+                            right skill.
+                        </span>
+                    </h2>
+
+                    <p>
+                        Explore our courses and find a learning
+                        path that matches your career goals.
+                    </p>
+
+                </div>
+
+
+                <a href="{% url 'home' %}" class="primary-btn">
+                    Explore Karka →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+
+            <div class="footer-brand">
+
+                <a href="{% url 'home' %}">
+
+                    <img src="{% static 'images/karka-logo.png' %}" alt="Karka AI & Tech Academy">
+
+                </a>
+
+                <p>
+                    Learn. Build. Grow.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'course_list' %}">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <p>
+                    Karka AI & Tech Academy
+                </p>
+
+                <p>
+                    Nagercoil, Tamil Nadu
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Karka AI & Tech Academy.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,955 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {{ course.name }} | Karka AI & Tech Academy
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/course-detail.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="cd-navbar">
+
+    <div class="cd-nav-container">
+
+        <a
+            href="{% url 'home' %}"
+            class="cd-logo"
+        >
+
+            <img
+                src="{% static 'images/karka-logo.png' %}"
+                alt="Karka AI & Tech Academy"
+            >
+
+        </a>
+
+
+        <nav class="cd-nav">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a
+                href="{% url 'course_list' %}"
+                class="active"
+            >
+                Courses
+            </a>
+
+            <a href="{% url 'why_karka' %}">
+                Why Karka
+            </a>
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+                <a
+                    href="{% url 'signup' %}"
+                    class="nav-cta"
+                >
+                    Sign Up
+                </a>
+
+            {% endif %}
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="course-hero">
+
+    <div class="cd-container">
+
+        <div class="hero-grid">
+
+
+            <!-- LEFT -->
+
+            <div class="hero-content">
+
+
+                <a
+                    href="{% url 'course_list' %}"
+                    class="back-link"
+                >
+                    ← &nbsp;
+                </a>
+
+
+                <span class="course-category">
+                    {{ course.category }}
+                </span>
+
+
+                <h1>
+                    {{ course.name }}
+                </h1>
+
+
+                <p class="hero-description">
+                    {{ course.short_description }}
+                </p>
+
+
+                <!-- META -->
+
+                <div class="hero-meta">
+
+
+                    <div class="meta-box">
+
+                        <div class="meta-icon">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Duration
+                            </small>
+
+                            <strong>
+                                {{ course.duration }}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="meta-box">
+
+                        <div class="meta-icon">
+                            ⚡
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Learning
+                            </small>
+
+                            <strong>
+                                Practical
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="meta-box">
+
+                        <div class="meta-icon">
+                            ♢
+                        </div>
+
+                        <div>
+
+                            <small>
+                                Certificate
+                            </small>
+
+                            <strong>
+                                Included
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="{% url 'enroll_course' course.pk %}"
+                        class="primary-btn"
+                    >
+                        Enroll Now
+                        <span>→</span>
+                    </a>
+
+
+                    <a
+                        href="#overview"
+                        class="outline-btn"
+                    >
+                        Explore Course
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- RIGHT IMAGE -->
+
+            <div class="hero-image-area">
+
+                <div class="image-glow"></div>
+
+
+                {% if course.image %}
+
+                    <img
+                        src="{{ course.image.url }}"
+                        alt="{{ course.name }}"
+                        class="hero-course-image"
+                    >
+
+                {% else %}
+
+                    <img
+                        src="{% static 'images/hero-image.png' %}"
+                        alt="{{ course.name }}"
+                        class="hero-course-image"
+                    >
+
+                {% endif %}
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<section
+    class="content-section overview-section"
+    id="overview"
+>
+
+    <div class="cd-container">
+
+
+        <div class="section-heading">
+
+            <span>
+                — &nbsp; COURSE OVERVIEW &nbsp; —
+            </span>
+
+            <h2>
+                What is this course
+                <b>about?</b>
+            </h2>
+
+        </div>
+
+
+        <div class="overview-grid">
+
+
+            <!-- OVERVIEW CARD -->
+
+            <div class="overview-card">
+
+                <div class="card-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h3>
+                        Build skills that actually matter.
+                    </h3>
+
+                    <p>
+                        {{ course.overview }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- WHY CARD -->
+
+            <div class="why-card">
+
+                <div class="card-icon">
+                    ★
+                </div>
+
+                <h3>
+                    Why learn this course?
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        <span>✓</span>
+                        Practical hands-on learning
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Real-world projects
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Industry-focused skills
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Career-ready knowledge
+                    </li>
+
+                    <li>
+                        <span>✓</span>
+                        Expert guidance
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- PILLS -->
+
+        <div class="overview-pills">
+
+            <span>
+                &lt;/&gt; &nbsp; Hands-on Projects
+            </span>
+
+            <span>
+                ◎ &nbsp; Real-world Learning
+            </span>
+
+            <span>
+                ♙ &nbsp; Expert Mentorship
+            </span>
+
+            <span>
+                ▣ &nbsp; Career Support
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section class="content-section skills-section">
+
+    <div class="cd-container">
+
+
+        <div class="section-heading">
+
+            <span>
+                — &nbsp; SKILLS YOU'LL LEARN &nbsp; —
+            </span>
+
+            <h2>
+                Skills
+                <b>You'll Gain</b>
+            </h2>
+
+            <p>
+                Build practical skills through structured,
+                industry-focused learning.
+            </p>
+
+        </div>
+
+
+        <div class="skills-card">
+
+
+            <!-- IMAGE -->
+
+            <div class="skills-image">
+
+                {% if course.image %}
+
+                    <img
+                        src="{{ course.image.url }}"
+                        alt="{{ course.name }}"
+                    >
+
+                {% else %}
+
+                    <img
+                        src="{% static 'images/hero-image.png' %}"
+                        alt="{{ course.name }}"
+                    >
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <div
+                class="skills-list"
+                id="skillsList"
+            >
+
+                <div
+                    id="skillsSource"
+                    class="hidden-source"
+                >
+                    {{ course.what_you_learn }}
+                </div>
+
+            </div>
+
+
+            <!-- FEATURE -->
+
+            <div class="skill-highlight">
+
+                <div class="highlight-icon">
+                    &lt;/&gt;
+                </div>
+
+                <span class="highlight-number">
+                    01
+                </span>
+
+                <h3>
+                    Practical skill development
+                </h3>
+
+                <p>
+                    Build real-world skills that can
+                    be applied to practical projects
+                    and career opportunities.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section class="content-section projects-section">
+
+    <div class="cd-container">
+
+
+        <div class="section-heading">
+
+            <span>
+                — &nbsp; PRACTICAL LEARNING &nbsp; —
+            </span>
+
+            <h2>
+                Learn by
+                <b>building.</b>
+            </h2>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- LEARNING PATH -->
+
+            <div class="project-card">
+
+
+                <div class="project-header">
+
+                    <div class="project-icon purple">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Learning Path
+                        </h3>
+
+                        <p>
+                            Step-by-step practical learning
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="learning-path"
+                    id="learningPath"
+                >
+
+                    <div
+                        id="learningSource"
+                        class="hidden-source"
+                    >
+                        {{ course.what_you_learn }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REAL PROJECTS -->
+
+            <div class="project-card">
+
+
+                <div class="project-header">
+
+                    <div class="project-icon blue">
+                        &lt;/&gt;
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Real Projects
+                        </h3>
+
+                        <p>
+                            Build projects for your portfolio
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="real-projects"
+                    id="realProjects"
+                >
+
+                    <div
+                        id="projectsSource"
+                        class="hidden-source"
+                    >
+                        {{ course.projects }}
+                    </div>
+
+                </div>
+
+
+                <div class="project-mini-image">
+
+                    {% if course.image %}
+
+                        <img
+                            src="{{ course.image.url }}"
+                            alt="Project"
+                        >
+
+                    {% endif %}
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CAREER CTA
+===================================================== -->
+
+<section class="career-section">
+
+    <div class="cd-container">
+
+        <div class="career-card">
+
+
+            <div class="career-decoration">
+                🚀
+            </div>
+
+
+            <div class="career-content">
+
+                <span>
+                    CAREER OPPORTUNITIES
+                </span>
+
+                <h2>
+                    Your future
+                    <b>starts here.</b>
+                </h2>
+
+                <p>
+                    Learn practical skills, build strong
+                    projects and prepare yourself for
+                    real-world career opportunities.
+                </p>
+
+
+                <a
+                    href="{% url 'enroll_course' course.pk %}"
+                    class="primary-btn"
+                >
+                    Start Learning
+                    →
+                </a>
+
+            </div>
+
+
+            <div class="career-points">
+
+                <div>
+                    <span>✦</span>
+                    Industry-ready skills
+                </div>
+
+                <div>
+                    <span>▣</span>
+                    Portfolio projects
+                </div>
+
+                <div>
+                    <span>♙</span>
+                    Interview preparation
+                </div>
+
+                <div>
+                    <span>◎</span>
+                    Career guidance
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="course-footer">
+
+    <div class="cd-container">
+
+        <div class="footer-content">
+
+
+            <div class="footer-brand">
+
+                <img
+                    src="{% static 'images/karka-logo.png' %}"
+                    alt="Karka AI & Tech Academy"
+                >
+
+                <p>
+                    Learn. Build. Grow.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'course_list' %}">
+                    Courses
+                </a>
+
+                <a href="{% url 'why_karka' %}">
+                    Why Karka
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Karka AI & Tech Academy
+            </p>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     Convert database text into clean items
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    function getItems(text) {
+
+        return text
+            .replace(/\r/g, "")
+            .split(/\n|•|;/)
+            .map(function(item) {
+                return item.trim();
+            })
+            .filter(function(item) {
+                return item.length > 0;
+            });
+
+    }
+
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+
+    const skillsList =
+        document.getElementById("skillsList");
+
+    const skillsSource =
+        document.getElementById("skillsSource");
+
+
+    const skillsText =
+        skillsSource.innerText.trim();
+
+
+    const skills =
+        getItems(skillsText);
+
+
+    skillsSource.remove();
+
+
+    skills.forEach(function(skill, index) {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "skill-item";
+
+
+        item.innerHTML = `
+
+            <span class="skill-check">
+                ✓
+            </span>
+
+            <span>
+                ${skill}
+            </span>
+
+        `;
+
+
+        skillsList.appendChild(item);
+
+    });
+
+
+
+    /* =====================================================
+       LEARNING PATH
+    ===================================================== */
+
+    const learningPath =
+        document.getElementById("learningPath");
+
+    const learningSource =
+        document.getElementById("learningSource");
+
+
+    const learningText =
+        learningSource.innerText.trim();
+
+
+    const learningItems =
+        getItems(learningText);
+
+
+    learningSource.remove();
+
+
+    learningItems.forEach(function(item, index) {
+
+        const row =
+            document.createElement("div");
+
+        row.className =
+            "learning-item";
+
+
+        row.innerHTML = `
+
+            <span class="learning-number">
+                ${String(index + 1).padStart(2, "0")}
+            </span>
+
+            <span class="learning-text">
+                ${item}
+            </span>
+
+            <span class="learning-plus">
+                +
+            </span>
+
+        `;
+
+
+        learningPath.appendChild(row);
+
+    });
+
+
+
+    /* =====================================================
+       REAL PROJECTS
+    ===================================================== */
+
+    const realProjects =
+        document.getElementById("realProjects");
+
+    const projectsSource =
+        document.getElementById("projectsSource");
+
+
+    const projectsText =
+        projectsSource.innerText.trim();
+
+
+    const projects =
+        getItems(projectsText);
+
+
+    projectsSource.remove();
+
+
+    projects.forEach(function(project) {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "real-project-item";
+
+
+        item.innerHTML = `
+
+            <span class="project-check">
+                ✓
+            </span>
+
+            <span>
+                ${project}
+            </span>
+
+        `;
+
+
+        realProjects.appendChild(item);
+
+    });
+
+
+});
+
+</script>
+
+
+</body>
+
+</html>

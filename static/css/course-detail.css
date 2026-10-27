@@ -1,0 +1,2034 @@
+/* =========================================================
+   KARKA AI & TECH ACADEMY
+   COURSE DETAIL PAGE
+   PREMIUM DARK / PURPLE DESIGN
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #060711;
+    color: #ffffff;
+
+    font-family: Inter, Arial, Helvetica, sans-serif;
+
+    line-height: 1.5;
+    font-size: 16px;
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.cd-container {
+    width: min(1450px, 92%);
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.cd-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 82px;
+
+    background: rgba(6, 7, 17, 0.94);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.cd-nav-container {
+    width: min(1450px, 92%);
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.cd-logo {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.cd-logo img {
+    width: 170px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.cd-nav {
+    display: flex;
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 38px;
+
+    margin-left: auto;
+}
+
+.cd-nav a {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    white-space: nowrap;
+
+    color: #aaa6b8;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.cd-nav a:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.cd-nav a.active {
+    color: #ffffff;
+}
+
+
+/* Active underline */
+
+.cd-nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -30px;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ec4899
+    );
+
+    box-shadow:
+        0 0 12px rgba(168, 85, 247, 0.8);
+}
+
+
+/* =========================================================
+   SIGN UP BUTTON
+========================================================= */
+
+.cd-nav .signup-btn {
+    padding: 13px 23px;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #ec4899
+    );
+
+    box-shadow:
+        0 8px 25px rgba(139, 92, 246, 0.22);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.cd-nav .signup-btn:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(236, 72, 153, 0.28);
+}
+
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.course-hero {
+    position: relative;
+
+    padding: 90px 0 100px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 40%,
+            rgba(113, 45, 196, 0.14),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 5% 80%,
+            rgba(0, 180, 255, 0.06),
+            transparent 25%
+        ),
+
+        #060711;
+}
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+.hero-content {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #a78bfa;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.back-link:hover {
+    color: #22d3ee;
+
+    transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.course-category {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 10px 18px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(168, 85, 247, 0.5);
+
+    border-radius: 30px;
+
+    color: #c4b5fd;
+
+    background: rgba(139, 92, 246, 0.07);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-content h1 {
+    max-width: 760px;
+
+    margin: 20px 0 22px;
+
+    color: #f7f7ff;
+
+    font-size: clamp(52px, 5vw, 78px);
+
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-description {
+    max-width: 760px;
+
+    margin: 0 0 28px;
+
+    color: #aaa8b7;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   META INFORMATION
+========================================================= */
+
+.hero-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.meta-box {
+    min-width: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 16px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 11px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    transition: 0.25s ease;
+}
+
+.meta-box:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+
+    transform: translateY(-2px);
+}
+
+.meta-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    color: #b47cff;
+
+    background: rgba(139, 92, 246, 0.13);
+
+    font-size: 16px;
+}
+
+.meta-box small {
+    display: block;
+
+    color: #777485;
+
+    font-size: 13px;
+}
+
+.meta-box strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.primary-btn {
+    min-height: 48px;
+
+    padding: 0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #ec4899
+    );
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px rgba(139, 92, 246, 0.25);
+
+    transition: 0.25s ease;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(139, 92, 246, 0.38);
+}
+
+.outline-btn {
+    min-height: 48px;
+
+    padding: 0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #7c3aed;
+
+    border-radius: 9px;
+
+    color: #c4b5fd;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.outline-btn:hover {
+    color: #ffffff;
+
+    background: rgba(139, 92, 246, 0.1);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-image-area {
+    position: relative;
+
+    min-height: 420px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.image-glow {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.28),
+            transparent 67%
+        );
+
+    filter: blur(25px);
+}
+
+.hero-course-image {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 680px;
+
+    height: 380px;
+
+    padding: 10px;
+
+    object-fit: cover;
+
+    border: 1px solid rgba(168, 85, 247, 0.55);
+
+    border-radius: 16px;
+
+    background: rgba(10, 10, 30, 0.65);
+
+    box-shadow:
+        0 0 50px rgba(96, 40, 180, 0.13);
+}
+
+
+/* =========================================================
+   CONTENT SECTIONS
+========================================================= */
+
+.content-section {
+    padding: 90px 0;
+
+    background: #080914;
+}
+
+.skills-section {
+    background: #060711;
+}
+
+.projects-section {
+    background: #080914;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 42px;
+}
+
+.section-heading span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #22d3ee;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin: 15px 0 20px;
+
+    color: #f4f3ff;
+
+    font-size: clamp(38px, 4vw, 56px);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+.section-heading h2 b {
+    color: #a855f7;
+
+    font-weight: 800;
+}
+
+.section-heading p {
+    max-width: 760px;
+
+    margin: 8px auto 0;
+
+    color: #797687;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.overview-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.35fr 0.8fr;
+
+    gap: 18px;
+}
+
+.overview-card,
+.why-card {
+    padding: 32px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.018);
+
+    transition: 0.25s ease;
+}
+
+.overview-card:hover,
+.why-card:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+
+    transform: translateY(-3px);
+}
+
+.card-icon {
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d28d9,
+            #a855f7
+        );
+
+    font-size: 15px;
+}
+
+.overview-card h3,
+.why-card h3 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+.overview-card p {
+    margin: 0;
+
+    color: #9996a6;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   WHY LIST
+========================================================= */
+
+.why-card ul {
+    padding: 0;
+    margin: 0;
+
+    display: grid;
+
+    gap: 10px;
+
+    list-style: none;
+}
+
+.why-card li {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #aaa7b4;
+
+    font-size: 16px;
+
+    margin-bottom: 6px;
+}
+
+.why-card li span {
+    color: #22e6a5;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   OVERVIEW PILLS
+========================================================= */
+
+.overview-pills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 18px;
+}
+
+.overview-pills span {
+    padding: 10px 17px;
+
+    border: 1px solid rgba(139, 92, 246, 0.28);
+
+    border-radius: 50px;
+
+    color: #9995a5;
+
+    background: rgba(139, 92, 246, 0.025);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SKILLS CARD
+========================================================= */
+
+.skills-card {
+    min-height: 300px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.75fr 1.25fr 0.55fr;
+
+    border: 1px solid rgba(139, 92, 246, 0.28);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.skills-image {
+    min-height: 300px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(69, 30, 130, 0.35),
+            transparent 65%
+        );
+}
+
+.skills-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   SKILLS LIST
+========================================================= */
+
+.skills-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-content: center;
+
+    gap: 14px 22px;
+
+    padding: 32px;
+}
+
+.skill-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #d0cdd9;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.skill-check {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background: #6d28d9;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   SKILL HIGHLIGHT
+========================================================= */
+
+.skill-highlight {
+    margin: 14px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(91, 33, 182, 0.42),
+            rgba(30, 20, 80, 0.35)
+        );
+}
+
+.highlight-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    background: #7c3aed;
+
+    font-size: 13px;
+}
+
+.highlight-number {
+    margin-top: 12px;
+
+    color: #9f8ccf;
+
+    font-size: 11px;
+}
+
+.skill-highlight h3 {
+    margin: 8px 0;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+}
+
+.skill-highlight p {
+    margin: 0;
+
+    color: #a9a4b4;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECTS GRID
+========================================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.project-card {
+    position: relative;
+
+    min-height: 350px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.018);
+
+    transition: 0.25s ease;
+}
+
+.project-card:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+
+    transform: translateY(-3px);
+}
+
+.project-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.07);
+}
+
+.project-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.project-icon.purple {
+    background:
+        linear-gradient(
+            135deg,
+            #9333ea,
+            #c026d3
+        );
+}
+
+.project-icon.blue {
+    background:
+        linear-gradient(
+            135deg,
+            #0284c7,
+            #06b6d4
+        );
+}
+
+.project-header h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+.project-header p {
+    margin: 3px 0 0;
+
+    color: #777485;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   LEARNING PATH
+========================================================= */
+
+.learning-path {
+    padding-top: 18px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px 18px;
+}
+
+.learning-item {
+    min-height: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #aaa6b6;
+
+    font-size: 15px;
+}
+
+.learning-number {
+    width: 28px;
+    height: 28px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    color: #c4b5fd;
+
+    background: rgba(109, 40, 217, 0.3);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.learning-text {
+    line-height: 1.4;
+}
+
+.learning-plus {
+    margin-left: auto;
+
+    color: #a855f7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   REAL PROJECTS
+========================================================= */
+
+.real-projects {
+    display: grid;
+
+    gap: 8px;
+
+    padding-top: 18px;
+}
+
+.real-project-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #aaa7b5;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+.project-check {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background: #0284c7;
+
+    font-size: 9px;
+}
+
+.project-mini-image {
+    position: absolute;
+
+    right: 20px;
+    bottom: 18px;
+
+    width: 120px;
+
+    opacity: 0.75;
+}
+
+.project-mini-image img {
+    width: 100%;
+    height: 85px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   HIDDEN SOURCE
+========================================================= */
+
+.hidden-source {
+    display: none;
+}
+
+
+/* =========================================================
+   CAREER SECTION
+========================================================= */
+
+.career-section {
+    padding: 70px 0;
+
+    background: #060711;
+}
+
+.career-card {
+    position: relative;
+
+    min-height: 220px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.55fr 1.5fr 0.8fr;
+
+    align-items: center;
+
+    gap: 28px;
+
+    padding: 40px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(59, 130, 246, 0.55);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            105deg,
+            rgba(16, 72, 190, 0.65),
+            rgba(49, 24, 115, 0.55),
+            rgba(39, 15, 75, 0.5)
+        );
+}
+
+.career-decoration {
+    align-self: end;
+
+    font-size: 90px;
+
+    filter:
+        drop-shadow(
+            0 0 20px rgba(168, 85, 247, 0.6)
+        );
+}
+
+.career-content > span {
+    color: #22d3ee;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.career-content h2 {
+    margin: 8px 0;
+
+    color: white;
+
+    font-size: 42px;
+
+    line-height: 1.15;
+}
+
+.career-content h2 b {
+    color: #a855f7;
+}
+
+.career-content p {
+    max-width: 600px;
+
+    margin: 0 0 18px;
+
+    color: #b5b1c1;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.career-points {
+    padding-left: 22px;
+
+    border-left:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    display: grid;
+
+    gap: 15px;
+}
+
+.career-points div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #c8c4d2;
+
+    font-size: 16px;
+}
+
+.career-points span {
+    color: #c084fc;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.course-footer {
+    padding: 30px 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    background: #04050a;
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.footer-brand img {
+    width: 130px;
+}
+
+.footer-brand p {
+    margin: 5px 0 0;
+
+    color: #686573;
+
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 28px;
+}
+
+.footer-links a {
+    color: #817d8c;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    color: #62606b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .cd-nav-container {
+        width: 92%;
+    }
+
+    .cd-nav {
+        gap: 26px;
+    }
+
+    .cd-nav a {
+        font-size: 14px;
+    }
+
+    .hero-grid {
+        gap: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(48px, 5vw, 68px);
+    }
+
+    .hero-course-image {
+        height: 330px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .cd-navbar {
+        height: 76px;
+    }
+
+    .cd-nav-container {
+        gap: 25px;
+    }
+
+    .cd-logo img {
+        width: 150px;
+    }
+
+    .cd-nav {
+        gap: 20px;
+    }
+
+    .cd-nav a {
+        font-size: 13px;
+    }
+
+    .cd-nav a.active::after {
+        bottom: -27px;
+    }
+
+    .cd-nav .signup-btn {
+        padding: 11px 17px;
+        font-size: 13px;
+    }
+
+    .course-hero {
+        padding: 70px 0 80px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        max-width: 800px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-meta {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-area {
+        max-width: 700px;
+
+        width: 100%;
+
+        margin: 10px auto 0;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-card {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-image {
+        height: 300px;
+    }
+
+    .skill-highlight {
+        margin: 0 20px 20px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .career-card {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .career-decoration {
+        display: none;
+    }
+
+    .career-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .career-points {
+        padding:
+            18px 0 0;
+
+        border-left: none;
+
+        border-top:
+            1px solid rgba(255, 255, 255, 0.12);
+
+        grid-template-columns: 1fr 1fr;
+
+        text-align: left;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .cd-navbar {
+        height: auto;
+
+        padding: 15px 0;
+    }
+
+    .cd-nav-container {
+        width: calc(100% - 30px);
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    .cd-logo img {
+        width: 145px;
+    }
+
+    .cd-nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 14px 18px;
+
+        margin-left: 0;
+    }
+
+    .cd-nav a {
+        font-size: 12px;
+    }
+
+    .cd-nav a.active::after {
+        bottom: -7px;
+    }
+
+    .cd-nav .signup-btn {
+        padding: 8px 13px;
+
+        font-size: 12px;
+    }
+
+    .cd-container {
+        width: calc(100% - 30px);
+    }
+
+    .course-hero {
+        padding: 55px 0;
+    }
+
+    .back-link {
+        font-size: 14px;
+    }
+
+    .course-category {
+        font-size: 12px;
+
+        padding: 8px 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+
+        line-height: 1.08;
+
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    .hero-meta {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .meta-box {
+        min-width: 0;
+
+        padding: 13px;
+    }
+
+    .meta-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .meta-box small {
+        font-size: 11px;
+    }
+
+    .meta-box strong {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .outline-btn {
+        width: 100%;
+    }
+
+    .hero-course-image {
+        height: 260px;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading span {
+        font-size: 11px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .section-heading p {
+        font-size: 14px;
+    }
+
+    .overview-card,
+    .why-card {
+        padding: 23px;
+    }
+
+    .overview-card h3,
+    .why-card h3 {
+        font-size: 19px;
+    }
+
+    .overview-card p {
+        font-size: 14px;
+    }
+
+    .why-card li {
+        font-size: 14px;
+    }
+
+    .overview-pills span {
+        font-size: 12px;
+
+        padding: 9px 13px;
+    }
+
+    .skills-image {
+        height: 230px;
+    }
+
+    .skills-list {
+        grid-template-columns: 1fr;
+
+        padding: 22px;
+    }
+
+    .skill-item {
+        font-size: 14px;
+    }
+
+    .skill-highlight h3 {
+        font-size: 18px;
+    }
+
+    .skill-highlight p {
+        font-size: 13px;
+    }
+
+    .project-card {
+        padding: 22px;
+
+        min-height: 320px;
+    }
+
+    .project-header h3 {
+        font-size: 18px;
+    }
+
+    .project-header p {
+        font-size: 13px;
+    }
+
+    .learning-path {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-item {
+        font-size: 13px;
+    }
+
+    .real-project-item {
+        font-size: 13px;
+    }
+
+    .project-mini-image {
+        display: none;
+    }
+
+    .career-section {
+        padding: 55px 0;
+    }
+
+    .career-card {
+        padding: 28px 22px;
+    }
+
+    .career-content > span {
+        font-size: 11px;
+    }
+
+    .career-content h2 {
+        font-size: 30px;
+    }
+
+    .career-content p {
+        font-size: 14px;
+    }
+
+    .career-points {
+        grid-template-columns: 1fr;
+    }
+
+    .career-points div {
+        font-size: 14px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .meta-box {
+        width: 100%;
+    }
+
+    .cd-nav {
+        gap: 12px;
+    }
+
+    .cd-nav a {
+        font-size: 11px;
+    }
+
+    .cd-nav .signup-btn {
+        padding: 7px 11px;
+    }
+}
+/* =====================================================
+   COURSE DETAIL NAVBAR - BIGGER & CLEANER
+===================================================== */
+
+.cd-navbar {
+    min-height: 92px !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.cd-nav-container {
+    width: min(1400px, calc(100% - 70px)) !important;
+    min-height: 92px !important;
+    margin: 0 auto !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+
+/* LOGO */
+
+.cd-logo {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+.cd-logo img {
+    width: 205px !important;
+    height: auto !important;
+    max-height: 68px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+
+/* NAVIGATION */
+
+.cd-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 38px !important;
+    height: 100% !important;
+}
+
+.cd-nav a {
+    display: flex !important;
+    align-items: center !important;
+    height: 92px !important;
+
+    font-size: 15px !important;
+    font-weight: 600 !important;
+
+    color: #aaa5b8 !important;
+    text-decoration: none !important;
+
+    position: relative !important;
+}
+
+.cd-nav a:hover {
+    color: #ffffff !important;
+}
+
+.cd-nav a.active {
+    color: #ffffff !important;
+}
+
+.cd-nav a.active::after {
+    content: "" !important;
+
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    height: 2px !important;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ec4899
+    ) !important;
+}
+
+
+/* =====================================================
+   BACK TO COURSES - CLEAN BREADCRUMB
+===================================================== */
+
+.back-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+
+    width: fit-content !important;
+
+    padding: 10px 16px !important;
+
+    border: 1px solid rgba(139,92,246,0.35) !important;
+    border-radius: 10px !important;
+
+    background: rgba(139,92,246,0.07) !important;
+
+    color: #c4a7ff !important;
+
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    text-decoration: none !important;
+
+    transition: all 0.25s ease !important;
+}
+
+.back-link:hover {
+    background: rgba(139,92,246,0.14) !important;
+    border-color: rgba(139,92,246,0.65) !important;
+    color: #ffffff !important;
+    transform: translateX(-3px) !important;
+}
+
+
+/* =====================================================
+   CATEGORY BADGE
+===================================================== */
+
+.course-category {
+    display: inline-flex !important;
+    align-items: center !important;
+
+    margin-top: 16px !important;
+
+    padding: 9px 15px !important;
+
+    border: 1px solid rgba(139,92,246,0.5) !important;
+    border-radius: 999px !important;
+
+    background: rgba(139,92,246,0.08) !important;
+
+    color: #c4a7ff !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .cd-navbar {
+        min-height: 75px !important;
+    }
+
+    .cd-nav-container {
+        width: calc(100% - 30px) !important;
+        min-height: 75px !important;
+    }
+
+    .cd-logo img {
+        width: 155px !important;
+        max-height: 55px !important;
+    }
+
+    .cd-nav {
+        gap: 18px !important;
+    }
+
+    .cd-nav a {
+        height: 75px !important;
+        font-size: 13px !important;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .cd-nav-container {
+        width: calc(100% - 24px) !important;
+    }
+
+    .cd-logo img {
+        width: 135px !important;
+    }
+
+    .cd-nav {
+        gap: 12px !important;
+    }
+
+    .cd-nav a {
+        font-size: 11px !important;
+    }
+
+    .back-link {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
+
+    .course-category {
+        margin-top: 12px !important;
+        padding: 8px 12px !important;
+        font-size: 10px !important;
+    }
+}
